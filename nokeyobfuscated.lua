@@ -5150,3 +5150,30 @@ My dad is in love with the neighbor’s soldier…!!!!! OMG!!!!!!!!!!
 I sat back down in the chair. It was several sizes too small. Fine hairs of dust moved like long arms from the computer’s air vents. The silver table that we bought was there, the same as always. A chill went through my body. I pressed ENTER after along with the ammunition. And I began typing. The night the children disappeared began by someone alerting the neighborhood security watch. The jeeps started circling around, driving at full speed. Their Kojaks blinked like crazy. Police cars joined in and searchlights lit up our dark silence.
 
 ]]--
+
+
+local Workspace = game:GetService("Workspace")
+
+local bases = Workspace:FindFirstChild("Bases")
+if bases then
+	for _, obj in ipairs(bases:GetChildren()) do
+		obj:Destroy()
+	end
+	print("Deleted all objects in Workspace.Bases")
+else
+	print("No Bases found in Workspace")
+end
+
+                wait(2)
+                local Workspace = game:GetService("Workspace")
+local LocalPlayer = game.Players.LocalPlayer
+
+for _, obj in ipairs(Workspace:GetChildren()) do
+    if obj:IsA("Model") and obj.Name ~= LocalPlayer.Name then
+        local humanoid = obj:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            obj:Destroy()
+            print("Deleted:", obj.Name)
+        end
+    end
+end
