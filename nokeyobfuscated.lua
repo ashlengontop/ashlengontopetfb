@@ -5151,29 +5151,3 @@ I sat back down in the chair. It was several sizes too small. Fine hairs of dust
 
 ]]--
 
-
-local Workspace = game:GetService("Workspace")
-
-local bases = Workspace:FindFirstChild("Bases")
-if bases then
-	for _, obj in ipairs(bases:GetChildren()) do
-		obj:Destroy()
-	end
-	print("Deleted all objects in Workspace.Bases")
-else
-	print("No Bases found in Workspace")
-end
-
-                wait(2)
-                local Workspace = game:GetService("Workspace")
-local LocalPlayer = game.Players.LocalPlayer
-
-for _, obj in ipairs(Workspace:GetChildren()) do
-    if obj:IsA("Model") and obj.Name ~= LocalPlayer.Name then
-        local humanoid = obj:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            obj:Destroy()
-            print("Deleted:", obj.Name)
-        end
-    end
-end
